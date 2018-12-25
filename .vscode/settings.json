@@ -1,0 +1,12 @@
+{
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": false,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "editor.wordWrap": "on",
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": true,
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "tslint.alwaysShowRuleFailuresAsWarnings": true
+}
