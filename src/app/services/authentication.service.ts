@@ -9,7 +9,8 @@ export class AuthenticationService
     private readonly USER_KEY = 'auth-user';
 
     private _user: User;
-    private get user(): User | Promise<User>
+
+    get user(): Promise<User>
     {
         if (this._user === undefined)
         {
@@ -19,24 +20,14 @@ export class AuthenticationService
                 .then(user => this._user = user);
         }
 
-        return this._user;
+        return Promise.resolve(this._user);
     }
 
     constructor(private storage: Storage) { }
 
-    isLoggedIn(): boolean | Promise<boolean>
+    async isLoggedIn(): Promise<boolean>
     {
-        let user = this.user;
-
-        if (user instanceof Promise)
-        {
-            user.then(user =>
-            {
-                return user !== undefined;
-            });
-        }
-
-        return user !== undefined;
+        return (await this.user) !== undefined;
     }
 }
 
