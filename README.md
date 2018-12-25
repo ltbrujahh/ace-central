@@ -26,5 +26,9 @@ ACEnglish
 
 ## Simlulating
 
-- for iOS (https://beta.ionicframework.com/docs/installation/ios)
-- for Android (https://beta.ionicframework.com/docs/installation/android)
+- [for iOS](https://beta.ionicframework.com/docs/installation/ios)
+- [for Android](https://beta.ionicframework.com/docs/installation/android)
+
+## wishlist
+
+- [Facebook login](https://ionicthemes.com/tutorials/about/ionic-facebook-login)
