@@ -8,6 +8,7 @@ export class NavmanService
 
     constructor() { }
 
+    toRoot = (): string => '/';
     toHome = (): string => '/home';
     toLogin = (): string => '/login';
 }

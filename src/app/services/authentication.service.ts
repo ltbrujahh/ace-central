@@ -14,7 +14,7 @@ export class AuthenticationService
     {
         if (this._user === undefined)
         {
-            // cache the user in memory so we dont have to keep getting it. 
+            // cache the user in memory so we dont have to keep getting it.
             this.storage
                 .get(this.USER_KEY)
                 .then(user => this._user = user);
@@ -28,6 +28,26 @@ export class AuthenticationService
     async isLoggedIn(): Promise<boolean>
     {
         return (await this.user) !== undefined;
+    }
+
+    async login(): Promise<User>
+    {
+        console.log('trying to login...');
+        return this.storage
+            .set(this.USER_KEY, { token: 'test-token' } as User)
+            .then(value =>
+            {
+                console.log('logged in with', value);
+                return value;
+            });
+    }
+
+    async logout(): Promise<any>
+    {
+        return this.storage
+            .remove(this.USER_KEY)
+            // clear from memory as well
+            .then(_ => this._user = undefined);
     }
 }
 

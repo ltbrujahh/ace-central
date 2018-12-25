@@ -15,6 +15,7 @@ export class HasNoLoginGuard implements CanActivate
         private navman: NavmanService
     ) { }
 
+    // tslint:disable-next-line:max-line-length
     canActivate: (next: ActivatedRouteSnapshot, state: RouterStateSnapshot) => Observable<boolean> | Promise<boolean> | boolean = this.checkActivation;
     canLoad: (route: Route, segments: UrlSegment[]) => Observable<boolean> | Promise<boolean> | boolean = this.checkActivation;
 
@@ -26,10 +27,12 @@ export class HasNoLoginGuard implements CanActivate
                 const canDo = !loggedIn;
                 if (!canDo)
                 {
-                    this.router.navigate([this.navman.toHome()]);
+                    const url = this.navman.toHome();
+                    console.log('already logged in, navigating to', url);
+                    this.router.navigate([url]);
                 }
 
                 return canDo;
-            })
+            });
     }
 }
