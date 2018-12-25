@@ -1,0 +1,8 @@
+// HACK: such a weird way of getting it center lol
+ion-grid {
+    height: 100%;
+
+    > ion-row {
+        height: 100%;
+    }
+}
