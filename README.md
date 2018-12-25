@@ -6,6 +6,11 @@ ACEnglish
 
 - VSCode
 - git
+- node
+- npm
+
+### Optional
+
 - Macbook Pro (I know but its just easier this way)
 - DevApp (for deploying locally on mobiles)
 
@@ -18,3 +23,8 @@ ACEnglish
 ## Testing
 
 - `npm start` should run `ionic serve --lab` to test iOS and Android
+
+## Simlulating
+
+- for iOS (https://beta.ionicframework.com/docs/installation/ios)
+- for Android (https://beta.ionicframework.com/docs/installation/android)
