@@ -10,23 +10,33 @@ export class AuthenticationService
 
     private _user: User;
 
+    // TODO: there should be a better way of doing this...
     get user(): Promise<User>
     {
-        if (this._user === undefined)
-        {
-            // cache the user in memory so we dont have to keep getting it.
-            this.storage
-                .get(this.USER_KEY)
-                .then(user => this._user = user);
-        }
+        if (this._user) { return Promise.resolve(this._user); }
 
-        return Promise.resolve(this._user);
+        console.log('grabbing user from storage...');
+        return this.storage
+            .get(this.USER_KEY)
+            .then(user =>
+            {
+                console.log('found user', user);
+
+                if (user)
+                {
+                    // cache the user in memory so we dont have to keep getting it.
+                    this._user = user;
+                }
+
+                return this._user;
+            });
     }
 
     constructor(private storage: Storage) { }
 
     async isLoggedIn(): Promise<boolean>
     {
+        console.log('checking is logged in...');
         return (await this.user) !== undefined;
     }
 
@@ -44,6 +54,7 @@ export class AuthenticationService
 
     async logout(): Promise<any>
     {
+        console.log('logging out user...');
         return this.storage
             .remove(this.USER_KEY)
             // clear from memory as well

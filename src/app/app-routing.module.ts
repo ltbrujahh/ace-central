@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HasNoLoginGuard } from './guards/has-no-login.guard';
+import { RouterModule, Routes } from '@angular/router';
 import { HasLoginGuard } from './guards/has-login.guard';
+import { HasNoLoginGuard } from './guards/has-no-login.guard';
 
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,6 +14,7 @@ const routes: Routes = [
     {
         path: 'home',
         canActivate: [HasLoginGuard],
+        canActivateChild: [HasLoginGuard],
         canLoad: [HasLoginGuard],
         loadChildren: './pages/home/home.module#HomePageModule'
     },
