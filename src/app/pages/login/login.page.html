@@ -1,11 +1,5 @@
-<!-- <ion-header>
-    <ion-toolbar>
-        <ion-title>login</ion-title>
-    </ion-toolbar>
-</ion-header> -->
-
 <ion-content no-padding>
-    <ion-grid>
+    <ion-grid no-padding>
         <ion-row justify-content-center align-items-center>
             <ion-col>
 
@@ -14,14 +8,27 @@
                         <ion-img src="https://via.placeholder.com/500"></ion-img>
                     </ion-col>
                 </ion-row>
-                <ion-row justify-content-center text-center>
+                <!-- <ion-row justify-content-center text-center>
                     <ion-col size="10">
-                        <ion-button color="primary" expand="full" (click)="login()">Login</ion-button>
+                        <ion-button mode="ios" color="primary" expand="full" (click)="login()">Login</ion-button>
                     </ion-col>
-                </ion-row>
+                </ion-row> -->
 
             </ion-col>
         </ion-row>
 
     </ion-grid>
 </ion-content>
+
+<ion-footer>
+    <ion-grid no-padding>
+        <ion-row justify-content-center>
+            <ion-col no-padding>
+                <ion-button mode="ios" color="success" expand="full" no-margin (click)="login()">Login</ion-button>
+            </ion-col>
+            <ion-col no-padding>
+                <ion-button mode="ios" color="danger" expand="full" no-margin>Register</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-footer>
