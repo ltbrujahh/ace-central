@@ -1,4 +1,4 @@
-<ion-content no-padding>
+<!-- <ion-content no-padding>
     <ion-grid no-padding>
         <ion-row justify-content-center align-items-center>
             <ion-col>
@@ -8,16 +8,29 @@
                         <ion-img src="https://via.placeholder.com/500"></ion-img>
                     </ion-col>
                 </ion-row>
-                <!-- <ion-row justify-content-center text-center>
-                    <ion-col size="10">
-                        <ion-button mode="ios" color="primary" expand="full" (click)="login()">Login</ion-button>
-                    </ion-col>
-                </ion-row> -->
-
             </ion-col>
         </ion-row>
 
     </ion-grid>
+</ion-content> -->
+
+<ion-content>
+
+    <ion-grid class="logo-wrapper">
+        <ion-row justify-content-center>
+            <ion-col size="6">
+                <ion-img src="https://via.placeholder.com/500"></ion-img>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-slides class="landing-info" autoplay="4000" pager [options]="sliderOpts">
+        <ion-slide *ngFor="let slide of slides">
+            <h1>{{ slide.heading }}</h1>
+            <p *ngIf="slide.subtitle">{{ slide.subtitle }}</p>
+        </ion-slide>
+    </ion-slides>
+
 </ion-content>
 
 <ion-footer>

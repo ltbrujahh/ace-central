@@ -1,8 +1,30 @@
-// HACK: such a weird way of getting it center lol
-ion-grid {
-    height: 100%;
+$bgColor: rgba(34, 36, 40, 0.5);
 
-    > ion-row {
-        height: 100%;
+// .wrapper {
+//     padding-top: 5rem;
+//     background-color: $bgColor !important;
+//     height: 100%;
+// }
+
+.logo-wrapper {
+    margin-top: 5rem;
+}
+
+.landing-info {
+    // color: white;
+}
+
+ion-slides {
+    // height: 100%;
+    // background-color: $bgColor;
+    position: absolute;
+    width: 100%;
+    height: 10rem;
+    bottom: 0rem;
+    margin-bottom: 2rem;
+
+    ion-slide {
+        flex-direction: column;
+        padding-bottom: 2rem;
     }
 }
