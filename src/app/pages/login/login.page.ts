@@ -36,6 +36,16 @@ export class LoginPage implements OnInit
     {
     }
 
+    onPromoVideoLoadStart($event: any): void
+    {
+        console.log('loading video...', $event);
+    }
+
+    onProgress($event: any, buffered: any): void
+    {
+        console.log('video progress...', $event, 'with buffered', buffered);
+    }
+
     async login($event: Event): Promise<void>
     {
         // TODO: add a twirly
