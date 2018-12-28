@@ -1,31 +1,16 @@
 <ion-content>
 
-    <video #promoVideo class="background-video" autoplay muted loop volume="0" (loadstart)="onPromoVideoLoadStart($event)"
-        (progress)="onProgress($event, promoVideo.buffered)">
+    <!-- TODO: at this point, not sure if its even worth it since its buggy to use, it takes ages to buffer, not sure why, maybe the bitrate and quality -->
+    <video class="background-video" autoplay muted loop volume="0" (loadstart)="onPromoVideoLoadStart($event)"
+        (progress)="onProgress($event)" (error)="onError($event)">
         <source src="/assets/promo.mp4" type="video/mp4">
 
         <p>Your phone does not support HTML5 video! (sadface)</p>
     </video>
 
     <div class="background-wrapper">
-
-
-        <ion-grid>
-            <ion-row justify-content-center>
-                <!-- HACK: the logo is poorly sized -->
-                <ion-col size="10">
-                    <!-- <ion-img src="https://via.placeholder.com/500"></ion-img> -->
-                    <ion-img src="/assets/logo.png"></ion-img>
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-
-        <ion-slides class="landing-info" autoplay="4000" pager [options]="sliderOpts">
-            <ion-slide *ngFor="let slide of slides">
-                <h1>{{ slide.heading }}</h1>
-                <p *ngIf="slide.subtitle">{{ slide.subtitle }}</p>
-            </ion-slide>
-        </ion-slides>
+        <ion-router-outlet></ion-router-outlet>
+        <!-- <app-landing></app-landing> -->
     </div>
 
 </ion-content>

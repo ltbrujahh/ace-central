@@ -1,0 +1,16 @@
+<ion-grid class="logo-grid">
+    <ion-row justify-content-center>
+        <!-- HACK: the logo is poorly sized -->
+        <ion-col size="10">
+            <!-- <ion-img src="https://via.placeholder.com/500"></ion-img> -->
+            <ion-img src="/assets/logo.png"></ion-img>
+        </ion-col>
+    </ion-row>
+</ion-grid>
+
+<ion-slides class="landing-info" autoplay="4000" pager [options]="sliderOpts">
+    <ion-slide *ngFor="let slide of slides">
+        <h1>{{ slide.heading }}</h1>
+        <p *ngIf="slide.subtitle">{{ slide.subtitle }}</p>
+    </ion-slide>
+</ion-slides>

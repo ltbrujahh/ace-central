@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@services/authentication.service';
 import { NavmanService } from '@services/navman.service';
@@ -10,8 +10,8 @@ import { NavmanService } from '@services/navman.service';
 })
 export class LoginPage implements OnInit
 {
-    readonly sliderOpts: any;
-    readonly slides: Slide[];
+
+    @ViewChild('promoVideo') readonly video: HTMLVideoElement;
 
     constructor(
         private router: Router,
@@ -19,17 +19,7 @@ export class LoginPage implements OnInit
         private navman: NavmanService
     )
     {
-        this.sliderOpts = {
-            autoplay: {
-                delay: 4000
-            }
-        };
 
-        this.slides = [
-            { heading: 'Christmas Service 2018', subtitle: '' },
-            { heading: 'Welcome back 2019', subtitle: 'First service for 2019!' },
-            { heading: 'Mothers Day', subtitle: 'For all the mothers of our church' },
-        ];
     }
 
     ngOnInit()
@@ -41,9 +31,18 @@ export class LoginPage implements OnInit
         console.log('loading video...', $event);
     }
 
-    onProgress($event: any, buffered: any): void
+    onProgress($event: Event): void
     {
+        const video = $event.target as HTMLVideoElement;
+        const buffered = video.buffered.length > 0
+            ? video.buffered.end(video.buffered.length - 1)
+            : video.buffered;
         console.log('video progress...', $event, 'with buffered', buffered);
+    }
+
+    onError($event: any): void 
+    {
+        console.error('on Error video', $event);
     }
 
     async login($event: Event): Promise<void>
@@ -56,8 +55,3 @@ export class LoginPage implements OnInit
     }
 }
 
-interface Slide
-{
-    heading: string;
-    subtitle: string;
-}

@@ -17,7 +17,7 @@ const routes: Routes = [
         canActivateChild: [HasLoginGuard],
         canLoad: [HasLoginGuard],
         loadChildren: './pages/home/home.module#HomePageModule'
-    },
+    }
 ];
 
 @NgModule({
