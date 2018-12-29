@@ -28,5 +28,11 @@ export class AppComponent
 
         this.statusBar.styleDefault();
         this.splashScreen.hide();
+
+        this.statusBar.overlaysWebView(false);
+        this.statusBar.backgroundColorByName('blue');
+
+        // TODO: are we going to stick to a dark background?
+        this.statusBar.styleLightContent();
     }
 }

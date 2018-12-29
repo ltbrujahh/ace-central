@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
     entryComponents: [],
     imports: [
         BrowserModule,
-        IonicModule.forRoot(),
+        IonicModule.forRoot({ _forceStatusbarPadding: true }),
         IonicStorageModule.forRoot(),
         AppRoutingModule
     ],
