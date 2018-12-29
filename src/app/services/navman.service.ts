@@ -11,4 +11,7 @@ export class NavmanService
     toRoot = (): string => '/';
     toHome = (): string => '/home';
     toLogin = (): string => '/login';
+    toLoginLanding = (): string => `${this.toLogin()}/landing`;
+    toLoginRegistration = (): string => `${this.toLogin()}/registration`;
+
 }

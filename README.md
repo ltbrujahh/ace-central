@@ -37,3 +37,8 @@ ACEnglish
 ## wishlist
 
 - [Facebook login](https://ionicthemes.com/tutorials/about/ionic-facebook-login)
+
+## Lame
+
+- Don't use href for navigation, it causes an actual navigation prompt in browsers (probably not the same for mobiles) so just do it the `angular` way with the `click` event binding
+- Page vs Component, use Page for the main view component, children as components

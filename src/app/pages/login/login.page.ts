@@ -24,6 +24,7 @@ export class LoginPage implements OnInit
 
     ngOnInit()
     {
+        this.router.navigate([this.navman.toLoginLanding()]);
     }
 
     onPromoVideoLoadStart($event: any): void
@@ -52,6 +53,11 @@ export class LoginPage implements OnInit
         const path = this.navman.toHome();
         console.log('navigating to', path);
         this.router.navigate([path]);
+    }
+
+    goToRegistration(): void
+    {
+        this.router.navigate([this.navman.toLoginRegistration()]);
     }
 }
 
