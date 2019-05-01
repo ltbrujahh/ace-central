@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-tabs',
-  templateUrl: './tabs.page.html',
-  styleUrls: ['./tabs.page.scss'],
+    selector: 'app-tabs',
+    templateUrl: './tabs.page.html',
+    styleUrls: ['./tabs.page.scss'],
 })
-export class TabsPage implements OnInit {
+export class TabsPage implements OnInit
+{
+    constructor(private router: Router) { }
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    ngOnInit()
+    {
+        // TODO move this to the guard
+        this.router.navigate(['tabs', 'home']);
+    }
 }
