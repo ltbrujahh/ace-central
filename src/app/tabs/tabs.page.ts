@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-tabs',
@@ -8,11 +7,9 @@ import { Router } from '@angular/router';
 })
 export class TabsPage implements OnInit
 {
-    constructor(private router: Router) { }
+    constructor() { }
 
     ngOnInit()
     {
-        // TODO move this to the guard
-        this.router.navigate(['tabs', 'home']);
     }
 }
