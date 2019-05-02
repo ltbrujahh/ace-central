@@ -1,12 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-
+import { RouterModule, Routes } from '@angular/router';
+import { RedirectorGuard, RedirectorGuardData } from '@guard/redirector.guard';
 import { IonicModule } from '@ionic/angular';
-
 import { TabsPage } from './tabs.page';
-import { RedirectorGuard, RedirectorGuardData } from '../redirector.guard';
 
 const routes: Routes = [
     {
@@ -17,23 +15,23 @@ const routes: Routes = [
         children: [
             {
                 path: 'home',
-                loadChildren: '../home/home.module#HomePageModule'
+                loadChildren: '@pages/home/home.module#HomePageModule'
             },
             {
                 path: 'calendar',
-                loadChildren: '../calendar/calendar.module#CalendarPageModule'
+                loadChildren: '@pages/calendar/calendar.module#CalendarPageModule'
             },
             {
                 path: 'bible',
-                loadChildren: '../bible/bible.module#BiblePageModule'
+                loadChildren: '@pages/bible/bible.module#BiblePageModule'
             },
             {
                 path: 'help',
-                loadChildren: '../help/help.module#HelpPageModule'
+                loadChildren: '@pages/help/help.module#HelpPageModule'
             },
             {
                 path: 'settings',
-                loadChildren: '../settings/settings.module#SettingsPageModule'
+                loadChildren: '@pages/settings/settings.module#SettingsPageModule'
             }
         ]
     }
