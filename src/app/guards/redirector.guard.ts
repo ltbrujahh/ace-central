@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,17 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class RedirectorGuard implements CanActivate
 {
-    constructor(private router: Router, private route: ActivatedRoute) { }
+    constructor(private router: Router) { }
 
     // tslint:disable-next-line:max-line-length
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree>
     {
         const data = route.data as RedirectorGuardData;
 
-        // TODO grr its not working
-        // this.router.navigate([data.to], { relativeTo: this.route });
+        // HACK its meant to check if the end route is equals the route this guard is attached to.
+        const canDo = !state.url.endsWith(state.root.children[0].url[0].path);
 
-        return true;
+        if (!canDo)
+        {
+            console.warn(`redirecting to ${state.url}/${data.to}`);
+            this.router.navigate([state.url, data.to]);
+        }
+
+        return canDo;
     }
 }
 
