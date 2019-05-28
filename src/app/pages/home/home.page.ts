@@ -15,4 +15,9 @@ export class HomePage
   {
     this.router.navigateByUrl('/tabs/home/messages');
   }
+
+  goToConnect(): void
+  {
+    this.router.navigateByUrl('/tabs/home/connect');
+  }
 }

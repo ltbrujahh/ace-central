@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
 import { MessComponent } from './mess/mess.component';
+import { ConnectComponent } from './connect/connect.component';
+
 
 @NgModule({
   imports: [
@@ -20,9 +22,13 @@ import { MessComponent } from './mess/mess.component';
       {
         path: 'messages',
         component: MessComponent
+      },
+      {
+        path: 'connect',
+        component: ConnectComponent   
       }
     ])
   ],
-  declarations: [HomePage, MessComponent]
+  declarations: [HomePage, MessComponent, ConnectComponent]
 })
 export class HomePageModule {}

@@ -23,3 +23,15 @@ ion-grid
         }
     }
 }
+
+.banner
+{
+    height: 20%;
+    background-color: lightblue;
+}
+
+.connect-groups
+{
+    height: 80%; // HACK: lets try to let this fill the rest of the page
+    background-color: lightcoral;
+}
