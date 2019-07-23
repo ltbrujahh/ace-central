@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './connect.component.html',
   styleUrls: ['./connect.component.scss'],
 })
-export class ConnectComponent implements OnInit 
+export class ConnectComponent implements OnInit
 {
 
     connectGroups: ConnectGroup[]
@@ -15,7 +15,7 @@ export class ConnectComponent implements OnInit
   ngOnInit() {
 
     this.connectGroups = [
-        { name: 'Young Mens', description: 'bunch of men test descroiption' },
+        { name: 'Young Mens', description: 'bunch of men test description' },
         { name: 'Young Couples', description: 'lorem ipsum' }
     ]
   }
