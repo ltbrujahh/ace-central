@@ -27,9 +27,10 @@ export class MessComponent implements OnInit
                 speakerName: 'Ps Christopher Lee',
                 title: 'The Armour of God',
                 synopsis: `Playing WoW all the time made him see the light`,
-                content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores culpa dignissimos eaque
-                dolor expedita, cumque architecto ex obcaecati omnis quae delectus consequatur. Laborum
-                officiis voluptas eaque neque voluptatibus nihil perferendis!`
+                // content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores culpa dignissimos eaque
+                // dolor expedita, cumque architecto ex obcaecati omnis quae delectus consequatur. Laborum
+                // officiis voluptas eaque neque voluptatibus nihil perferendis!`
+                content: `test123`
             },
             {
                 speakerName: 'Ps Jhon Halim',
@@ -42,6 +43,10 @@ export class MessComponent implements OnInit
         ];
     }
 
+    onShareClicked($event: Event): void
+    {
+        console.log('clicked the share button with event', $event);
+    }
 }
 
 interface Message

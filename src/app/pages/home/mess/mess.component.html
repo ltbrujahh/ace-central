@@ -1,22 +1,24 @@
 <ion-content>
-    <ion-grid class="ion-no-padding">
-        <ion-row class="message-container" *ngFor="let message of messages">
-            <ion-col>
-                <ion-grid class="card">
-                    <ion-row class="message-title-container">
-                        <ion-col class="card-title">
-                            {{message.speakerName}} - {{message.title}}
-                        </ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col>
-                            <p class="ion-no-margin">
-                                {{message.content}}
-                            </p>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <ion-card class="message" *ngFor="let message of messages">
+        <ion-card-header>
+            <ion-grid class="ion-no-padding">
+                <ion-row>
+                    <ion-col class="ion-no-padding">
+                        <ion-card-subtitle>{{message.speakerName}}</ion-card-subtitle>
+                        <ion-card-title>{{message.title}}</ion-card-title>
+                    </ion-col>
+                    <ion-col class="ion-no-padding ion-text-center" size="auto" align-self-center>
+                        <ion-button class="share-icon ion-no-margin" fill="clear" (click)="onShareClicked($event)">
+                            <!-- TODO: what colour should it be? we can always just override the color via css as well -->
+                            <ion-icon name="share" slot="icon-only" color="tertiary"></ion-icon>
+                        </ion-button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-header>
+
+        <ion-card-content>
+            {{message.content}}
+        </ion-card-content>
+    </ion-card>
 </ion-content>
