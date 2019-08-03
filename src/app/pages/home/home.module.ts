@@ -25,7 +25,7 @@ import { ConnectComponent } from './connect/connect.component';
       },
       {
         path: 'connect',
-        component: ConnectComponent   
+        component: ConnectComponent
       }
     ])
   ],

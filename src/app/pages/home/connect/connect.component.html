@@ -1,20 +1,12 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+            <ion-menu-button menu="m1"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Connect</ion-title>
+    </ion-toolbar>
+</ion-header>
 <ion-content>
-    <div class="banner">
-        this is the banner
-    </div>
-    <!-- <div class="connect-groups">
-        <ion-grid>
-            <ion-row *ngFor="let group of connectGroups">
-                <ion-col size="3">
-                    {{ group.name }}
-                </ion-col>
-                <ion-col>
-                    {{ group.description }}
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </div> -->
-
     <ion-list class="connect-groups">
         <ion-item *ngFor="let group of connectGroups">
             <ion-grid>
@@ -29,6 +21,4 @@
             </ion-grid>
         </ion-item>
       </ion-list>
-
-
 </ion-content>
