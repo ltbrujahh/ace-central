@@ -4,10 +4,15 @@ ion-grid
     display: flex;
     flex-direction: column;
 
-    ion-row
-    {
-        flex: 1 0;
-    }
+    // ion-row
+    // {
+    //     flex: 1 0;
+    // }
+}
+
+ion-row
+{
+    height: 75px;
 }
 
 .card
@@ -24,15 +29,9 @@ ion-grid
     }
 }
 
-.banner
-{
-    height: 20%;
-    background-color: lightblue;
-}
-
 .connect-groups
 {
-    height: 80%; // HACK: lets try to let this fill the rest of the page
+    height: 100%; // HACK: lets try to let this fill the rest of the page
     background-color: lightcoral;
 }
 
