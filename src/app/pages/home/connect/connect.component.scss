@@ -3,11 +3,6 @@ ion-grid
     height: 100%;
     display: flex;
     flex-direction: column;
-
-    // ion-row
-    // {
-    //     flex: 1 0;
-    // }
 }
 
 ion-row
@@ -31,7 +26,7 @@ ion-row
 
 .connect-groups
 {
-    height: 100%; // HACK: lets try to let this fill the rest of the page
+    height: 100%;
     background-color: lightcoral;
 }
 
