@@ -1,3 +1,25 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu side="start" menuId="m1">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>
+          Assembly Church
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <br/>
+        <ion-avatar margin>
+          <img src="https://cdn2.iconfinder.com/data/icons/avatar-profile/509/avatar_hair_contact_profile_user_default-512.png">
+        </ion-avatar>
+        <ion-list>
+            <ion-item>Profile</ion-item>
+            <ion-item>Inbox</ion-item>
+            <ion-item>Donation/Tithe</ion-item>
+            <ion-item>Help</ion-item>
+            <ion-item>About</ion-item>
+        </ion-list>            
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
 </ion-app>
