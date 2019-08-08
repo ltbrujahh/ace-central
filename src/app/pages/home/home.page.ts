@@ -20,4 +20,9 @@ export class HomePage
   {
     this.router.navigateByUrl('/tabs/home/connect');
   }
+
+  goToDailydev(): void
+  {
+    this.router.navigateByUrl('/tabs/home/dailydev')
+  }
 }
