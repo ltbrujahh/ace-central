@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { AlertController, Platform } from '@ionic/angular';
 
 @Component({
     selector: 'ace-mess',
@@ -9,7 +11,11 @@ export class MessComponent implements OnInit
 {
     messages: Message[];
 
-    constructor() { }
+    constructor(
+        private platform: Platform,
+        private socialSharing: SocialSharing,
+        private alertController: AlertController
+    ) { }
 
     ngOnInit()
     {
@@ -43,9 +49,62 @@ export class MessComponent implements OnInit
         ];
     }
 
-    onShareClicked($event: Event): void
+    async onShareClicked($event: Event): Promise<void>
     {
-        console.log('clicked the share button with event', $event);
+        if (this.platform.is('cordova'))
+        {
+            await this.shareViaEmail();
+        }
+        else
+        {
+            console.log('clicked the share button with event', $event);
+        }
+    }
+
+    private async shareViaEmail(): Promise<void>
+    {
+        let canDo: boolean;
+
+        try
+        {
+            canDo = await this.socialSharing.canShareViaEmail();
+        } catch (err)
+        {
+            console.error('error during canShareViaEmail', err);
+            const alert = await this.alertController.create({
+                header: 'FAIL',
+                subHeader: 'Subtitle',
+                message: 'This is an alert message.',
+                buttons: ['OK']
+            });
+            await alert.present();
+        }
+
+        if (canDo)
+        {
+            console.log('can do');
+            const alert = await this.alertController.create({
+                header: 'Alert',
+                subHeader: 'Subtitle',
+                message: 'This is an alert message.',
+                buttons: ['OK']
+            });
+            await alert.present();
+
+            try
+            {
+                await this.socialSharing.shareViaEmail('Body', 'Subject', ['recipient@example.org']);
+            } catch (err)
+            {
+                const failAlert = await this.alertController.create({
+                    header: 'Fail on sharing via email',
+                    subHeader: 'Subtitle',
+                    message: err,
+                    buttons: ['OK']
+                });
+                await failAlert.present();
+            }
+        }
     }
 }
 
