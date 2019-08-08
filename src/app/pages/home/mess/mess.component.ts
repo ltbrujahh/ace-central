@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController, LoadingController, Platform } from '@ionic/angular';
 
 @Component({
     selector: 'ace-mess',
@@ -14,7 +14,8 @@ export class MessComponent implements OnInit
     constructor(
         private platform: Platform,
         private socialSharing: SocialSharing,
-        private alertController: AlertController
+        private alertController: AlertController,
+        private loadingController: LoadingController
     ) { }
 
     ngOnInit()
@@ -51,17 +52,25 @@ export class MessComponent implements OnInit
 
     async onShareClicked($event: Event): Promise<void>
     {
+        const loading = await this.loadingController.create({
+            message: 'Please wait...',
+            // translucent: true,
+            // cssClass: 'custom-class custom-loading'
+        });
+        await loading.present();
+
         if (this.platform.is('cordova'))
         {
-            await this.shareViaEmail();
+            await this.shareViaEmail(loading);
         }
         else
         {
+            await loading.dismiss();
             console.log('clicked the share button with event', $event);
         }
     }
 
-    private async shareViaEmail(): Promise<void>
+    private async shareViaEmail(loading: HTMLIonLoadingElement): Promise<void>
     {
         let canDo: boolean;
 
@@ -70,6 +79,7 @@ export class MessComponent implements OnInit
             canDo = await this.socialSharing.canShareViaEmail();
         } catch (err)
         {
+            await loading.dismiss();
             console.error('error during canShareViaEmail', err);
             const alert = await this.alertController.create({
                 header: 'FAIL',
@@ -82,14 +92,7 @@ export class MessComponent implements OnInit
 
         if (canDo)
         {
-            console.log('can do');
-            const alert = await this.alertController.create({
-                header: 'Alert',
-                subHeader: 'Subtitle',
-                message: 'This is an alert message.',
-                buttons: ['OK']
-            });
-            await alert.present();
+            await loading.dismiss();
 
             try
             {
