@@ -1,11 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-import { HomePage } from './home.page';
-import { MessComponent } from './mess/mess.component';
+import { IonicModule } from '@ionic/angular';
+import { ConnectModalComponent } from './connect/connect-modal/connect-modal.component';
 import { ConnectComponent } from './connect/connect.component';
 import { DailydevComponent } from './dailydev/dailydev.component';
 import { ConnectModule } from './connect/connect.module';
@@ -37,4 +35,4 @@ import { ConnectModule } from './connect/connect.module';
   ],
   declarations: [HomePage, MessComponent, ConnectComponent, DailydevComponent]
 })
-export class HomePageModule {}
+export class HomePageModule { }
