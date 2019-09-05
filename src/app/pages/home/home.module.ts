@@ -1,38 +1,41 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-
-import { HomePage } from './home.page';
-import { MessComponent } from './mess/mess.component';
+import { IonicModule } from '@ionic/angular';
+import { ConnectModalComponent } from './connect/connect-modal/connect-modal.component';
 import { ConnectComponent } from './connect/connect.component';
 import { DailydevComponent } from './dailydev/dailydev.component';
+import { HomePage } from './home.page';
+import { MessComponent } from './mess/mess.component';
+
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: HomePage
-      },
-      {
-        path: 'messages',
-        component: MessComponent
-      },
-      {
-        path: 'connect',
-        component: ConnectComponent
-      },
-      {
-        path: 'dailydev',
-        component: DailydevComponent
-      }
-    ])
-  ],
-  declarations: [HomePage, MessComponent, ConnectComponent, DailydevComponent]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        RouterModule.forChild([
+            {
+                path: '',
+                component: HomePage
+            },
+            {
+                path: 'messages',
+                component: MessComponent
+            },
+            {
+                path: 'connect',
+                component: ConnectComponent
+            },
+            {
+                path: 'dailydev',
+                component: DailydevComponent
+            }
+        ])
+    ],
+    // TODO: we should instead import the ConnectModule to clean this up?
+    declarations: [HomePage, MessComponent, ConnectComponent, DailydevComponent, ConnectModalComponent],
+    entryComponents: [ConnectModalComponent]
 })
-export class HomePageModule {}
+export class HomePageModule { }

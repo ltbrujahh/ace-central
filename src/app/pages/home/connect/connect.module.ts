@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-
-import { AppComponent } from './../../../app.component';
 import { AppRoutingModule } from './../../../app-routing.module';
+import { AppComponent } from './../../../app.component';
 import { ConnectModalComponent } from './connect-modal/connect-modal.component';
 
 @NgModule({
@@ -13,6 +12,7 @@ import { ConnectModalComponent } from './connect-modal/connect-modal.component';
         IonicModule,
     ],
     declarations: [ConnectModalComponent],
-    entryComponents: [AppComponent, ConnectModalComponent]
+    entryComponents: [AppComponent],
+    exports: [ConnectModalComponent]
 })
-export class ConnectModule {}
+export class ConnectModule { }
