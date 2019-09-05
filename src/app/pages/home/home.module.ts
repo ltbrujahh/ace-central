@@ -6,14 +6,12 @@ import { IonicModule } from '@ionic/angular';
 import { ConnectModalComponent } from './connect/connect-modal/connect-modal.component';
 import { ConnectComponent } from './connect/connect.component';
 import { DailydevComponent } from './dailydev/dailydev.component';
-import { ConnectModule } from './connect/connect.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ConnectModule,
     RouterModule.forChild([
       {
         path: '',
