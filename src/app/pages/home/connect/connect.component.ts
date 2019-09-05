@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 import { ConnectGroup } from './connect.model';
+import { ConnectModalComponent } from './connect-modal/connect-modal.component';
+
 
 @Component({
   selector: 'ace-connect',
@@ -9,9 +12,11 @@ import { ConnectGroup } from './connect.model';
 })
 export class ConnectComponent implements OnInit
 {
-    connectGroups: ConnectGroup[];
+  connectGroups: ConnectGroup[];
 
-  constructor() { }
+  constructor(
+    private modalCtrl: ModalController,
+  ) { }
 
   ngOnInit() {
 
@@ -46,5 +51,13 @@ export class ConnectComponent implements OnInit
           description: 'Voluptate qui elit eu consequat',
         },
     ];
+  }
+
+  goToConnectModal(){
+    this.modalCtrl
+      .create({component: ConnectModalComponent})
+      .then(modalEl => {modalEl
+      .present();
+    });
   }
 }
