@@ -8,7 +8,7 @@
                         <ion-card-title>{{message.title}}</ion-card-title>
                     </ion-col>
                     <ion-col class="ion-no-padding ion-text-center" size="auto" align-self-center>
-                        <ion-button class="share-icon ion-no-margin" fill="clear" (click)="onShareClicked($event)">
+                        <ion-button class="share-icon ion-no-margin" fill="clear" (click)="onShareClicked(message)">
                             <!-- TODO: what colour should it be? we can always just override the color via css as well -->
                             <ion-icon name="share" slot="icon-only" color="tertiary"></ion-icon>
                         </ion-button>

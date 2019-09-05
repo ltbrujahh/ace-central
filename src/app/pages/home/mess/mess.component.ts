@@ -26,9 +26,8 @@ export class MessComponent implements OnInit
                 speakerName: 'Ps William Law',
                 title: 'The sword of all Truths',
                 synopsis: `Playing WoW all the time made him see the light`,
-                content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores culpa dignissimos eaque
-                dolor expedita, cumque architecto ex obcaecati omnis quae delectus consequatur. Laborum
-                officiis voluptas eaque neque voluptatibus nihil perferendis!`
+                // tslint:disable-next-line:max-line-length
+                content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores culpa dignissimos eaque dolor expedita, cumque architecto ex obcaecati omnis quae delectus consequatur. Laborum officiis voluptas eaque neque voluptatibus nihil perferendis!`
             },
             {
                 speakerName: 'Ps Christopher Lee',
@@ -50,7 +49,7 @@ export class MessComponent implements OnInit
         ];
     }
 
-    async onShareClicked($event: Event): Promise<void>
+    async onShareClicked(message: Message): Promise<void>
     {
         const loading = await this.loadingController.create({
             message: 'Please wait...',
@@ -61,13 +60,20 @@ export class MessComponent implements OnInit
 
         if (this.platform.is('cordova'))
         {
-            await this.shareViaEmail(loading);
+            // await this.socialSharing.share(message.content, 'subject');
+            // https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin#4-usage-on-ios-and-android
+            // TODO: wow. android cant support pre-filling the message...
+            // await this.socialSharing.shareViaFacebook(message.content, null, null);
+
+            // await this.shareViaEmail(loading);
         }
         else
         {
-            await loading.dismiss();
-            console.log('clicked the share button with event', $event);
+            // await loading.dismiss();
+            console.log('clicked the share button with message', message);
         }
+
+        await loading.dismiss();
     }
 
     private async shareViaEmail(loading: HTMLIonLoadingElement): Promise<void>
