@@ -8,12 +8,14 @@ import { HomePage } from './home.page';
 import { MessComponent } from './mess/mess.component';
 import { ConnectComponent } from './connect/connect.component';
 import { DailydevComponent } from './dailydev/dailydev.component';
+import { ConnectModule } from './connect/connect.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
+    ConnectModule,
     RouterModule.forChild([
       {
         path: '',

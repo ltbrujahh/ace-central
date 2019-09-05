@@ -1,3 +1,4 @@
+import { ModalController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connect-modal.component.scss'],
 })
 export class ConnectModalComponent implements OnInit {
+  @Input() 
 
-  constructor() { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {}
 
+  dismiss() {
+    this.modalCtrl.dismiss({
+      'dismissed': true
+    });
+  }
 }
