@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ConnectModalComponent } from './connect/connect-modal/connect-modal.component';
 import { ConnectComponent } from './connect/connect.component';
-import { DailydevComponent } from './dailydev/dailydev.component';
+
 
 @NgModule({
   imports: [
@@ -23,14 +23,10 @@ import { DailydevComponent } from './dailydev/dailydev.component';
       },
       {
         path: 'connect',
-        component: ConnectComponent   
-      },
-      {
-        path: 'dailydev',
-        component: DailydevComponent
+        component: ConnectComponent
       }
     ])
   ],
-  declarations: [HomePage, MessComponent, ConnectComponent, DailydevComponent]
+  declarations: [HomePage, MessComponent, ConnectComponent]
 })
 export class HomePageModule { }
