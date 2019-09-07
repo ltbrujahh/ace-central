@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { ModalController } from '@ionic/angular';
 import { ConnectModalComponent } from './connect-modal/connect-modal.component';
 import { ConnectGroup } from './connect.model';
 
 
+=======
+
+import { ConnectGroup } from './connect.model';
+>>>>>>> parent of 3349472... added connectModal
 =======
 
 import { ConnectGroup } from './connect.model';
@@ -18,6 +23,7 @@ import { ConnectGroup } from './connect.model';
 export class ConnectComponent implements OnInit
 {
     connectGroups: ConnectGroup[];
+<<<<<<< HEAD
 
 <<<<<<< HEAD
     constructor(
@@ -67,6 +73,9 @@ export class ConnectComponent implements OnInit
             .then(modalEl => modalEl.present());
     }
 =======
+=======
+
+>>>>>>> parent of 3349472... added connectModal
   constructor() { }
 
   ngOnInit() {
@@ -103,5 +112,8 @@ export class ConnectComponent implements OnInit
         },
     ];
   }
+<<<<<<< HEAD
+>>>>>>> parent of 3349472... added connectModal
+=======
 >>>>>>> parent of 3349472... added connectModal
 }
