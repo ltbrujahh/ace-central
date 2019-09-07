@@ -23,7 +23,7 @@ import { DailydevComponent } from './dailydev/dailydev.component';
       },
       {
         path: 'connect',
-        component: ConnectComponent
+        component: ConnectComponent   
       },
       {
         path: 'dailydev',
