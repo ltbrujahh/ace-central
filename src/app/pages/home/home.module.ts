@@ -23,7 +23,15 @@ import { ConnectComponent } from './connect/connect.component';
       },
       {
         path: 'connect',
+<<<<<<< HEAD
         component: ConnectComponent
+=======
+        component: ConnectComponent   
+      },
+      {
+        path: 'dailydev',
+        component: DailydevComponent
+>>>>>>> parent of 3349472... added connectModal
       }
     ])
   ],
