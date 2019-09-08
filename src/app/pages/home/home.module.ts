@@ -1,3 +1,4 @@
+import { ConnectModule } from './connect/connect.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +15,7 @@ import { DailydevComponent } from './dailydev/dailydev.component';
     CommonModule,
     FormsModule,
     IonicModule,
+    ConnectModule,
     RouterModule.forChild([
       {
         path: '',
