@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { ConnectModalComponent } from './connect/connect-modal/connect-modal.component';
 import { ConnectComponent } from './connect/connect.component';
+import { HomePage } from './home.page';
+import { MessComponent } from './mess/mess.component';
 
 
 @NgModule({
@@ -23,15 +25,11 @@ import { ConnectComponent } from './connect/connect.component';
       },
       {
         path: 'connect',
-<<<<<<< HEAD
-        component: ConnectComponent
-=======
-        component: ConnectComponent   
+        component: ConnectComponent,
       },
       {
         path: 'dailydev',
         component: DailydevComponent
->>>>>>> parent of 3349472... added connectModal
       }
     ])
   ],
