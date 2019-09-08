@@ -7,7 +7,7 @@ import { ConnectModalComponent } from './connect/connect-modal/connect-modal.com
 import { ConnectComponent } from './connect/connect.component';
 import { HomePage } from './home.page';
 import { MessComponent } from './mess/mess.component';
-
+import { DailydevComponent } from './dailydev/dailydev.component';
 
 @NgModule({
   imports: [
@@ -33,6 +33,6 @@ import { MessComponent } from './mess/mess.component';
       }
     ])
   ],
-  declarations: [HomePage, MessComponent, ConnectComponent]
+  declarations: [HomePage, MessComponent, ConnectComponent, DailydevComponent]
 })
 export class HomePageModule { }
